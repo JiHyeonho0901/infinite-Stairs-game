@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang = "ko">
 <head>
-    <metta charest="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charest="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>무한의 계단</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <h1>무한의 계단</h1>
-    <p>점수: <span id="score">0</span></p>
+    <p class="score-line">점수: <span id="score">0</span> / 최고: <span id="best">0</span></p>
     <div id="gauge">
         <div id="gauge-bar"></div>
     </div>
     <div id="game">
         <div id="world"></div>
-        <div id="guide"s>
+        <div id="guide">
             <div class="guide-half">
                 <p>방향 바꾸기<br>(왼쪽터치)</p>
             </div>
@@ -30,7 +29,13 @@
         <div id="gameover">
             <p id="gameover-title">게임 오버</p>
             <p id="gameover-score"></p>
+            <p id="gameover-best"></p>
             <p>k키 또는 화면 터치로 다시 시작</p>
+        </div>
+
+        <div id="select">
+            <p id="select-title">캐릭터를 골라주세요</p>
+            <div id="select-list"></div>
         </div>
     </div>
 

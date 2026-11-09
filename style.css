@@ -1,3 +1,7 @@
+* {
+    touch-action: manipulation;
+}
+
 #game {
     position: relative;
     width: 360px;
@@ -6,8 +10,10 @@
     background-color: #dfe9f3;
     margin: 0 auto 16px;
     overflow: hidden;
-    touch-action: manipulation;
+    touch-action: none;
     user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 #gauge {
@@ -28,16 +34,16 @@
 
 .stair {
     position: absolute;
-    width: 60px;
-    height: 10px;
     background-color: #6b4f3a;
+    box-sizing: border-box;
+    border: 2px solid #4a3426;
 }
 
 .player{
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #2c5fd9;
+    width: 40px;
+    height: auto;
+    z-index: 10;
 }
 
 #world {
@@ -85,6 +91,7 @@
   #gameover {
     position: absolute;
     top:0;
+    left:0;
     width:100%;
     height:100%;
     display:none;
@@ -104,6 +111,109 @@
 
   #gameover-score {
     font-size: 22px;
-    margin:0 0 16px;
+    margin:0 0 6px;
   }
 
+  #gameover-best {
+    font-size: 18px;
+    margin: 0 0 16px;
+  }
+
+  @media (max-width: 600px) {
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    #game {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: none;
+        height: 100vh;
+        height: 100dvh;
+        margin: 0;
+        z-index: 1;
+    }
+
+    #gauge {
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .score-line {
+        position: fixed;
+        top: 36px;
+        left: 12px;
+        margin: 0;
+        padding: 2px 12px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: bold;
+        z-index: 10;
+        pointer-events: none;
+    }
+}
+
+#select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100;
+  height: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1d2b44;
+  color: white;
+  text-align: center;
+}
+
+#select-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 14px;
+}
+
+#select-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+.select-card {
+  width: 76px;
+  padding: 6px;
+  border: 2px solid white;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.select-card img {
+  display: block;
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.select-card p {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
